@@ -11,8 +11,10 @@ class Dealer
   end
 
   def turn(deck)
-    if @points < 17 && @hand.size < 3
+    if @points > 17 || @hand.size == 3
+      puts "\n"
       puts 'Дилер пропустил ход'
+      puts "\n"
     else
       give_card(deck)
     end

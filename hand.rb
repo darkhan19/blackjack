@@ -3,38 +3,28 @@
 module Hand
   attr_accessor :hand, :bank, :points
 
+  BET = 10
+
   def give_card(deck)
     @hand << deck.shift
     calculate_points
   end
 
   def make_bet
-    @bank -= 10
+    @bank -= BET
   end
 
   def win_bet
-    @bank += 20
+    @bank += 2 * BET
   end
 
   def tie
-    @bank += 10
+    @bank += BET
   end
 
   def clean
     @hand = []
     @points = 0
-  end
-
-  def show_cards
-    @hand.each do |card|
-      print "|#{card.suit} #{card.face}|"
-    end
-    print "\n"
-    show_points
-  end
-
-  def show_points
-    puts "Твои очки: #{points}"
   end
 
   private
