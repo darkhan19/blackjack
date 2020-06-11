@@ -34,6 +34,16 @@ module Interface
     print "\n"
   end
 
+  def dealer_skips
+    puts "\n"
+    puts 'Дилер пропустил ход'
+    puts "\n"
+  end
+
+  def three_card
+    puts '3 Карты максимум!'
+  end
+
   def ask_for_move
     puts 'Выбери что хочешь сделать?
           1. Взять карту

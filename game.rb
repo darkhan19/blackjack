@@ -31,11 +31,11 @@ class Game
     case choice
     when :take_card
       if @player.hand.size > 2
-        puts '3 Карты максимум!'
+        Interface.three_card
         open_cards
       else
         give_cards(1, @player, @deck)
-        @dealer.turn(@deck)
+        dealer_turn(@dealer, @deck)
         Interface.show_player_cards_points(@player)
         player_move
       end
@@ -90,9 +90,7 @@ class Game
 
   def dealer_turn(dealer, deck)
     if dealer.points > 17 || dealer.hand.size == 3
-      puts "\n"
-      puts 'Дилер пропустил ход'
-      puts "\n"
+     Interface.dealer_skips
     else
       give_cards(1, dealer, deck)
     end
